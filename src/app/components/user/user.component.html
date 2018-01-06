@@ -1,0 +1,72 @@
+<!-- <p>
+  Hello, my name is {{ name }}. I am {{ age }} years old. I live at {{ address.street }}, {{ address.city }}, {{ address.state
+  }}.
+</p>
+
+<p>
+  <h4>Hobbies</h4>
+  <ul>
+    <li *ngFor="let hobby of hobbies"> {{hobby}}</li>
+  </ul> -->
+<h2>Monthly Mortgage Payment Calculator</h2>
+
+My name is {{ name }}. I am {{ age }} years old and I live at {{ address.street }}, {{ address.city }}, {{ address.state}}.
+
+<h3>Edit User Info</h3>
+<form>
+  <div>
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" [(ngModel)]="name" name="name" >
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <br>
+    <input type="text" [(ngModel)]="age" name="age">
+  </div>
+
+  <div>
+    <label for="street">Street:</label>
+    <br>
+    <input type="text" [(ngModel)]="address.street" name="street">
+  </div>
+
+  <div>
+      <label for="city">City:</label>
+      <br>
+      <input type="text" [(ngModel)]="address.city"name="city">
+    </div>
+
+
+    <div>
+        <label for="state">State:</label>
+        <br>
+        <input type="text" [(ngModel)]="address.state" name="state">
+      </div>
+
+</form>
+
+<h3>Calculator</h3>
+
+<form>
+  Loan Balance
+  <input style="margin-left:2rem" name="loan balance" #balance/>
+  <br>
+  <br> Yearly Interest Rate
+  <input style="margin-left:2rem" name="interest rate" #interest/>
+  <br>
+  <br> Loan Term
+  <select style="margin-left:2rem" name="loan term" #term>
+    <option value="15">15 years</option>
+    <option value="30">30 years</option>
+
+  </select>
+
+  <br>
+  <br>
+  <button (click)="onSubmit(namefield.value, balance.value, interest.value, term.value)"> Calculate </button>
+</form>
+
+<p>
+  Your monthly payment is: {{ monthlyPayments }}
+</p>
